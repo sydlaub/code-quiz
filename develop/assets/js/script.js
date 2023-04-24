@@ -45,6 +45,32 @@ const questions = [
 
 //References to HTML elements
 var timer = document.getElementById("timer");
+var timeLeft = document.getElementById("timeLeft");
+var timeUp = document.getElementById("timeUp");
+var viewLeaderBrd = document.getElementById("viewLeaderBrd");
+
+
+var startDiv = document.getElementById("startDiv");
+var startButton = document.getElementById("startButton");
+
+
+var quizDiv = document.getElementById("quizDiv");
+var questionContent = document.getElementById("questionContent");
+var choiceA = document.getElementById("button-1");
+var choiceB = document.getElementById("button-2");
+var choiceC = document.getElementById("button-3");
+var choiceD = document.getElementById("button-4");
+var checkAnswer = document.getElementById("checkAnswer");
+
+var scoreDiv = document.getElementById("scoreDiv");
+var finalScore = document.getElementById("finalScore");
+var userInitials = document.getElementById("userInitials");
+var initialSubmitButton = document.getElementById("initialSubmitButton");
+
+
+
+
+
 
 
 
