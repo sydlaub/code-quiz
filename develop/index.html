@@ -1,11 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
-<>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Code Quiz</title>
-    <link rel=stylesheet href="./assets/css/style.css">
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Code Quiz</title>
+<link rel=stylesheet href="./assets/css/style.css">
 </head>
 
 <body>
@@ -15,9 +14,42 @@
             <a href="#" id="View Leaderboard">View Leaderboard</a>
         </div>
         <div class="row text-right" id="timer">
-            <p> Time: <span id ="timeLeft">0</span></p>
+            <p> Time: <span id="timeLeft">0</span></p>
 
         </div>
+
+    </div>
+
+    <!-- Main content -->
+    <div>
+        <!-- Start screen -->
+        <div id="startDiv">
+            <h1>Syd's College Mascot Quiz</h1>
+            <p>Let's test your knowledge of College Mascots. This is a 10 question multiple choice quiz about concepts related to US College Mascots. You will have 2 minutes to complete the quiz, however, if you answer incorrectly 10 seconds will be deducted from the remaining time. Press the start button to begin & good luck!</p>
+            <button type="button" id="start-button">Start Quiz!</button>
+        </div>
+
+        <!-- Quiz content -->
+        <div id="quizDiv" style="display: none" ;>
+            <p id="questionContent" class="text-center"></p>
+            <div class="text-center">
+                <p><button id="button-1"></button></p>
+                <p><button id="button-2"></button></p>
+                <p><button id="button-3"></button></p>
+                <p><button id="button-4"></button></p>
+                <p id="checkAnswer" style="display:none";></p>
+            </div>
+        </div>
+
+        <!-- Score screen -->
+        <div id="scoreDiv" style="display: none" ;>
+
+
+
+        </div>
+
+
+
 
     </div>
 
@@ -27,4 +59,5 @@
 
 
 </body>
+
 </html>

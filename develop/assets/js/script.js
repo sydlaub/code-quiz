@@ -11,10 +11,46 @@
 // THEN I can save my initials and score
 
 
-//Define Variables
+//DEFINE VARIABLES
+//Define a set of questions
+const questions = [
+    {
+        question: "",
+        choices: [],
+        answer: ""
+    },
+    {
+        question: "",
+        choices: [],
+        answer:""
+    },
+    {
+        question:"",
+        choices: [],
+        answer:""
+    },
+    {
+        question:"",
+        choices:[],
+        answer:""
+    },
+    {
+        question:"",
+        choices:[],
+        answer:""
+    }
+]
 
-// define a set of questions
 
 
 //References to HTML elements
-var timer = document.getElementById()
+var timer = document.getElementById("timer");
+
+
+
+
+// FUNCTIONS
+// start timer
+
+var totalTime = 121;
+
