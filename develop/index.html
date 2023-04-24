@@ -17,8 +17,9 @@
             <p> Time: <span id="timeLeft">0</span></p>
 
         </div>
-
     </div>
+
+
 
     <!-- Main content -->
     <div>
@@ -29,28 +30,48 @@
             <button type="button" id="start-button">Start Quiz!</button>
         </div>
 
+
+
         <!-- Quiz content -->
-        <div id="quizDiv" style="display: none" ;>
+        <div id="quizDiv" style="display: none;">
             <p id="questionContent" class="text-center"></p>
             <div class="text-center">
                 <p><button id="button-1"></button></p>
                 <p><button id="button-2"></button></p>
                 <p><button id="button-3"></button></p>
                 <p><button id="button-4"></button></p>
-                <p id="checkAnswer" style="display:none";></p>
+                <p id="checkAnswer" style="display:none;"></p>
             </div>
         </div>
 
+
+
         <!-- Score screen -->
-        <div id="scoreDiv" style="display: none" ;>
-
-
-
+        <div id="scoreDiv" style="display: none;">
+            <h2>Your score is <span id="finalScore"></span> ! </h2>
+            <form>
+                <p>Enter your initials: <input: id="userInitials" type="text"></p>
+                <button id="initialSubmitButton" type="button">Submit</button>
+            </form>
         </div>
 
 
 
+        <!-- Leaderboard section -->
+        <div id="ldrDiv" class="text-center" style="display: none;">
+            <h2>High Scores</h2>
+            <div id="highScoreList"></div>
 
+            <!-- append each new high score as a new paragraph -->
+            <p>
+                <buton type="submit" id="returnHomeBtn">Home Page</buton>
+                <button type="submit" id="clearScores">Clear High Scores</button>
+            </p>
+        </div>
+   
+   
+   
+   
     </div>
 
 
