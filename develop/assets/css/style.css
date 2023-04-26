@@ -8,14 +8,19 @@ h2,
 p{
     font-family: Georgia, 'Times New Roman', Times, serif;
     color: #43464B;
+    padding: 10px;
 }
 
 a {
     font-family: Verdana, Geneva, Tahoma, sans-serif;
+    /* background-color: #8A9C73;
+    border: 5px, solid, black; */
+
 }
 
 button {
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    background-color: #8a9c73;
 }
 
 
@@ -29,3 +34,12 @@ button {
     justify-content: space-between;
 }
 
+.allContent {
+    display: flex;
+    align-items: center;
+}
+
+.allContent div h1,
+.allContent div a{
+    align-items: center;
+}

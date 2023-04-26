@@ -251,3 +251,14 @@ function storeScores(e) {
 // show the user all of the current high scores in order
     // need to check if there are any saved in local storage (if there are none then none will display)
 
+function showLdrBoard(){
+    scoreDiv.style.display = "none";
+    quizDiv.style.display = "none";
+    startDiv.style.display = "none";
+    timeLeft.style.disply = "none";
+    timeUp.style.display = "none";
+    leadbrdDiv.style.display = "block";
+
+    var savedHighScores = localStorage.getItem("high scores");
+    
+}
