@@ -24,8 +24,8 @@
     <div>
         <!-- Start screen -->
         <div id="startDiv">
-            <h1>Syd's College Mascot Quiz</h1>
-            <p>Let's test your knowledge of College Mascots. This is a 10 question multiple choice quiz about concepts related to US College Mascots. You will have 2 minutes to complete the quiz, however, if you answer incorrectly 10 seconds will be deducted from the remaining time. Press the start button to begin & good luck!</p>
+            <h1>BIG 10 College Mascot Quiz</h1>
+            <p>How well do you know the BIG10 conference? This is a multiple choice quiz - you will be presented a with the name of a college and a list of mascot choices. Do your best to select the correct answer. You will have 2 minutes to complete the quiz, however, if you answer incorrectly 10 seconds will be deducted from the remaining time. Press the start button to begin & good luck!</p>
             <button type="button" id="startButton">Start Quiz!</button>
         </div>
 
@@ -34,11 +34,11 @@
         <!-- Quiz content -->
         <div id="quizDiv" style="display: none;">
             <p id="questionContent" class="text-center"></p>
-            <div class="text-center">
-                <p><button id="button-1"></button></p>
-                <p><button id="button-2"></button></p>
-                <p><button id="button-3"></button></p>
-                <p><button id="button-4"></button></p>
+            <div class="text-center choices-container">
+                <p><button class="choiceButton"></button></p>
+                <p><button class="choiceButton"></button></p>
+                <p><button class="choiceButton"></button></p>
+                <p><button class="choiceButton"></button></p>
                 <p id="checkAnswer" style="display:none;"></p>
             </div>
         </div>
@@ -51,9 +51,7 @@
             <form>
                 <p>Enter your initials: <input: id="userInitials" type="text"></p>
                 <button id="initialSubmitButton" type="button">Submit</button>
-            </form>
-        </div>
-
+            </form> 
 
 
         <!-- Leaderboard section -->
@@ -63,7 +61,7 @@
 
             <!-- append each new high score as a new paragraph -->
             <p>
-                <buton type="submit" id="returnHomeBtn">Home Page</buton>
+                <button type="submit" id="returnHomeBtn">Home Page</button>
                 <button type="submit" id="clearScores">Clear High Scores</button>
             </p>
         </div>
@@ -76,7 +74,8 @@
 
 
 
-
+<!-- Link JS -->
+<script src="./assets/js/script.js"></script>
 
 </body>
 
