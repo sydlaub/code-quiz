@@ -7,10 +7,11 @@ This is a timed multiple choice quiz built from JavaScript, HTML and CSS. The qu
 
 ## Usage
 [Link to GitHub Repo](https://github.com/sydlaub/code-quiz)
-[Link to deployed Site]()
+
+[Link to deployed Site](https://sydlaub.github.io/code-quiz/)
 
 The application can be viewed on a desktop browser as displayed below.
-
+![Screenshot of deployed quiz site](./develop/assets/Code%20Quiz%20Screenshot.png)
 
 ## Credits
 Collaborators include teachers, TAs, tutors and fellow students in the Columbia University Full Stack Engineering Bootcamp 2023 Spring cohort.
