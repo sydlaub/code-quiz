@@ -27,7 +27,7 @@ var scoreDiv = document.getElementById("scoreDiv");
 var finalScore = document.getElementById("finalScore");
 var userInitials = document.getElementById("userInitials");
 var initialSubmitButton = document.getElementById("initialSubmitButton");
-var leadbrdDiv = document.getElementById("ldrDiv");
+var leaderBrdDiv = document.getElementById("ldrDiv");
 var highScoreList = document.getElementById("highScoreList");
 var returnHomeBtn = document.getElementById("returnHomeBtn");
 var clearScoreBtn = document.getElementById("clearScores");
@@ -134,12 +134,21 @@ function startQuiz() {
 };
 
 function showNextQuestion() {
-    questionContent.textContent = questionBank[questionBankIndex].question;
-    for (let i = 0; i < 4; i++) {
-        choiceButtons[i].textContent = questionBank[questionBankIndex].choices[i];
+    // check if there are more questions remaining in the question bank
+    console.log(questionBankIndex)
+    console.log(questionBank.length)
+    if (questionBankIndex === questionBank.length) {
+        endGame();
+    } else {
+        // if there are more questions, then display the next question to user
+        questionContent.textContent = questionBank[questionBankIndex].question;
+        for (let i = 0; i < 4; i++) {
+            choiceButtons[i].textContent = questionBank[questionBankIndex].choices[i];
+        }
     }
-
+    return;
 }
+
 
 function gradeUserAnswer(event) {
     //console.log(event.target);
@@ -162,58 +171,45 @@ function gradeUserAnswer(event) {
     }
 }
 
-if (questionBankIndex < questionBank.length) {
-    showNextQuestion();
-} else {
-    endGame();
-}
-
 // event listener to listen for start quiz button
 startButton.addEventListener("click", startQuiz);
 startButton.addEventListener("click", beginTimer);
 choicesContainer.addEventListener('click', gradeUserAnswer);
 
 
-
-// if all questions have been answered, run the endGame() function
-// if (questionBankIndex < questionBank.length - 1) {
-//     endGame();
-// }
-
 // when all the questions have been answered or the timer reaches 0 endGame
 function endGame() {
     console.log('Game has ended.')
-    scoreDiv.style.display = "block";
+    scoreDiv.style.display = "block";  // this is the final score
     quizDiv.style.display = "none";
     startDiv.style.display = "none";
     timeLeft.style.disply = "none";
+    timer.style.display = "none";
     timeUp.style.display = "block";
-}
 
     // show the user their score
-    finalScore.textContent=timeLeft.textContent
-    // console.log(finalScore.textContent)
-
+    finalScore.textContent = timeLeft.textContent
+}
 
 
 // show user final score (which is the time remaining on the timer) and prompt them to enter initials
-    // store the high score into local storage
+// store the high score into local storage
 
 
 function storeScores(e) {
     e.preventDefault();
 
-    if (userInitials.value === "") {
-        alert("Enter your initials, please");
-        return;
-    }
+    // if (userInitials.value === "") {
+    //     alert("Enter your initials, please");
+    //     return;
+    // }
 
     scoreDiv.style.display = "none";
     quizDiv.style.display = "none";
     startDiv.style.display = "none";
     timeLeft.style.disply = "none";
     timeUp.style.display = "none";
-    leadbrdDiv.style.display = "block";
+    leaderBrdDiv.style.display = "block";
 
     // use the store object method to stringify the score array in ascending order in local storage
     var userScore = {
@@ -227,38 +223,82 @@ function storeScores(e) {
     // localStorage.setItem("userScore", JSON.stringify(userScore));
     // renderScore()
 
-    
-    if (savedScores === null){
-        savedScoresArray = [];
-    } else {
-        savedScoresArray = JSON.parse(savedScores)
-    }
 
-    savedScoresArray.push(userScore);
+    // if (savedScores === null) {
+    //     savedScoresArray = [];
+    // } else {
+    //     savedScoresArray = JSON.parse(savedScores)
+    // }
+
+    // savedScoresArray.push(userScore);
 
 
-    var savedScoresArray = JSON.stringify(savedScoresArray);
-    window.localStorage.setItem("high score", savedScoresArray);
+    // var savedScoresArray = JSON.stringify(savedScoresArray);
+    // window.localStorage.setItem("high score", savedScoresArray);
 
     showLdrBoard();
 
-    };
+};
+
+// event listener for user submitting initials
+initialSubmitButton.addEventListener("click", function (e) {
+    // Save high score in local storage
+    let highScoreData = JSON.parse(localStorage.getItem("userScore") || "[]")
+    highScoreData.push(parseInt(finalScore.textContent))
+    localStorage.setItem("userScore", JSON.stringify(highScoreData))
 
 
+    // console.log("highScoreData", highScoreData)
+
+    
+    // show leaderboard page
+    showLdrBoard();
+})
 
 
 
 // show the user all of the current high scores in order
-    // need to check if there are any saved in local storage (if there are none then none will display)
+// need to check if there are any saved in local storage (if there are none then none will display)
 
-function showLdrBoard(){
+function showLdrBoard() {
+    // clear existing stuff from screen and display leaderboard 
+    leaderBrdDiv.style.display = "block";
     scoreDiv.style.display = "none";
     quizDiv.style.display = "none";
     startDiv.style.display = "none";
     timeLeft.style.disply = "none";
     timeUp.style.display = "none";
-    leadbrdDiv.style.display = "block";
-
-    var savedHighScores = localStorage.getItem("high scores");
     
+ 
+
+    var savedHighScores = localStorage.getItem("userScore");
+    console.log("savedHighScores", savedHighScores)
+    highScoreList.textContent = savedHighScores
+    // var storedScores = JSON.parse(savedHighScores);
+    // for (let i = 0; i < storedScores.length; i++) {
+    //     var newLdrBrdScore = document.createElement("li");
+    //     newLdrBrdScore.innerHTML = storedScores[i].initials + ":" + storedScores[i].score;
+    //     highScoreList.appendChild(newLdrBrdScore);
+    // }
 }
+
+// event listener to view the leaderboard list
+viewLeaderBrd.addEventListener("click", function (e) {
+    showLdrBoard(e)
+})
+
+// event listener to return to home page
+returnHomeBtn.addEventListener("click", function () {
+    startDiv.style.display = "block";
+    leaderBrdDiv.style.display = "none";
+    startDiv.style.display = "none";
+    quizDiv.style.display = "none";
+    timeLeft.style.display = "block";
+    scoreDiv.style.display = "none";
+})
+
+// event lisener to clear high scores
+clearScoreBtn.addEventListener("click", function(e){
+    window.localStorage.removeItem("userScore")
+    highScoreList.innerHTML="Scores cleared!"
+})
